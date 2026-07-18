@@ -1,0 +1,30 @@
+# PLANS.md
+
+Use an execution plan for work that spans modules, carries meaningful risk, or may continue across sessions.
+
+## Plan Contract
+
+### Objective
+[Concrete outcome]
+
+### Non-goals
+- [Explicitly excluded work]
+
+### Evidence and assumptions
+- Evidence: [Files, behavior, or requirement]
+- Assumption: [Unverified point and how it will be checked]
+
+### Phases
+1. [Phase and acceptance criterion]
+2. [Phase and acceptance criterion]
+3. [Verification and documentation]
+
+### Risks
+- [Risk]: [Mitigation]
+
+### Progress
+- [ ] [Pending step]
+- [ ] [Pending step]
+
+### Stop conditions
+- Stop for confirmation when [destructive action, architecture expansion, or missing authority].

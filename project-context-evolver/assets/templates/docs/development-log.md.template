@@ -1,0 +1,14 @@
+# Development Log
+
+Record meaningful context-changing milestones. Do not duplicate git history.
+
+## YYYY-MM-DD
+
+### Changed
+- [Durable change]
+
+### Why it matters
+- [User or future-agent impact]
+
+### Follow-up
+- [Remaining work or `None`]

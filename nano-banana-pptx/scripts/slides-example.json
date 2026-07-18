@@ -1,0 +1,96 @@
+{
+  "_comment": "Nano Banana Pro × PPTX — Example Slide Config (Midnight Editorial / Style A)",
+  "_usage": "node generate.js --config slides-example.json --output my-deck.pptx",
+
+  "title": "The Future of Sustainable Design",
+  "author": "Your Name / Organization",
+  "throttle_ms": 2500,
+
+  "_global_vars_note": "These values are available as {{TOKEN}} in every slide prompt.",
+  "variables": {
+    "STYLE_A_SYSTEM": "Design language — Midnight Editorial:\nBackground fill: near-black #0B0F19. Card/panel surface: #131929.\nAll text: off-white #F0F4FF. Single accent color: electric blue #3B82F6.\nMuted labels: slate #64748B.\nTypography: heavy condensed sans-serif titles (bold, tight tracking), light-weight body.\nSection category labels in ALL CAPS small text, electric blue.\nONE thin 2px electric-blue horizontal rule spans the full width at the very top of the slide.\nNO gradients, NO blob shapes, NO decorative ornaments beyond the top rule.\nNegative space is intentional — breathe.",
+
+    "CATEGORY":      "Design Intelligence",
+    "DATE":          "2025",
+    "ORGANIZATION":  "Studio Name",
+    "CONTACT_EMAIL": "hello@studio.com",
+    "CONTACT_WEB":   "www.studio.com",
+    "TOTAL":         "10"
+  },
+
+  "slides": [
+    {
+      "name": "Cover",
+      "_note": "Slide-level variables override global ones. Prompts can use any {{TOKEN}}.",
+      "variables": {
+        "TITLE":    "The Future of Sustainable Design",
+        "SUBTITLE": "A Strategic Framework for 2025–2030"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nCOVER SLIDE. Centered composition with massive negative space.\nTop-left: category label in electric blue ALL CAPS: \"{{CATEGORY}}\"\nCenter: Hero title \"{{TITLE}}\" — condensed bold, very large, 3 lines max, off-white.\nBelow title: subtitle \"{{SUBTITLE}}\" in light-weight, smaller, slate color.\nBottom strip: thin dark surface bar (#131929) spanning full width.\n  Inside bar — left-aligned: \"{{DATE}}\" in slate. Right-aligned: \"{{ORGANIZATION}}\" in slate.\nNothing else. Massive dark open space dominates. The title breathes.\n16:9 aspect ratio. 4K ultra-quality."
+    },
+
+    {
+      "name": "Agenda",
+      "variables": {
+        "AGENDA_ITEMS": "01   The Sustainability Imperative\n     Why design can no longer ignore its footprint\n02   Material Intelligence\n     Smart choices at the sourcing stage\n03   Circular Systems\n     Designing products for their second life\n04   Measurement & Reporting\n     What good looks like in numbers"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nAGENDA SLIDE.\nMaintain identical visual DNA as the reference image.\nTop-left: category label \"AGENDA\" in electric blue ALL CAPS.\nBelow: agenda items as a clean numbered list:\n{{AGENDA_ITEMS}}\n  (Large electric-blue numeral per item, item title in off-white, descriptor in slate below.)\nFull-width dark surface card #131929 behind the list. Generous row height.\nBottom-right: slide counter \"{{PAGE}} / {{TOTAL}}\" in slate small text.\n16:9. 4K."
+    },
+
+    {
+      "name": "Left Text / Right Image — Material Intelligence",
+      "variables": {
+        "SECTION":     "CHAPTER 02",
+        "SLIDE_TITLE": "Material Intelligence",
+        "BULLETS":     "— Renewable inputs now cost-competitive with virgin materials\n— Bio-based composites outperform plastics in 6 of 9 durability metrics\n— Supplier certification is the new table stakes for procurement\n— Regional sourcing reduces embodied carbon by up to 40%",
+        "BULLET_COUNT": "4",
+        "IMAGE_DESCRIPTION": "Close-up macro photograph of woven natural fibers — linen, cork, and bamboo — beautifully lit with warm side-lighting, editorial product photography style, neutral background, premium texture detail"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nSPLIT LAYOUT — LEFT TEXT / RIGHT IMAGE.\nMaintain identical visual DNA as the reference image.\nLeft half (48% width): dark surface panel #131929.\n  Top of panel: section category label \"{{SECTION}}\" in electric blue ALL CAPS, small.\n  Below: slide title \"{{SLIDE_TITLE}}\" in condensed bold, large, off-white, 2 lines max.\n  Below title: {{BULLET_COUNT}} bullet points, each prefixed with a thin blue dash \"—\":\n{{BULLETS}}\n  Bottom of panel: page counter \"{{PAGE}} / {{TOTAL}}\" in slate.\nRight half (52% width): AI-generated full-bleed image.\n  Image subject: \"{{IMAGE_DESCRIPTION}}\"\n  Image mood: editorial, professional, slightly desaturated to harmonize with dark palette.\n  Vertical divider between panels: 1px electric blue line.\n16:9. 4K."
+    },
+
+    {
+      "name": "Left Image / Right Text — Circular Systems",
+      "variables": {
+        "SECTION":     "CHAPTER 03",
+        "SLIDE_TITLE": "Designing for the Second Life",
+        "IMAGE_DESCRIPTION": "Aerial view of a beautifully organized material recovery facility — clean, modern, almost gallery-like, with sorted colored materials in separate zones, dramatic overhead lighting, architectural photography style",
+        "BODY_TEXT":   "— Design for disassembly must be a brief requirement, not an afterthought\n— Modular systems extend product lifespan by an average of 7 years\n— Reverse logistics partnerships are now available at SME scale\n— Circularity indexes are entering client RFPs across Europe and APAC",
+        "SOURCE":      "Ellen MacArthur Foundation, 2024 Circular Economy Report"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nSPLIT LAYOUT — LEFT IMAGE / RIGHT TEXT.\nMaintain identical visual DNA as the reference image.\nLeft half (52% width): AI-generated full-bleed image, fills the panel edge-to-edge.\n  Image subject: \"{{IMAGE_DESCRIPTION}}\"\n  Mood: editorial, cinematic, slightly cooler tones.\n  Vertical divider on the right edge of image: 1px electric blue line.\nRight half (48% width): dark surface panel #131929.\n  Top: section label \"{{SECTION}}\" in electric blue ALL CAPS, small.\n  Below: \"{{SLIDE_TITLE}}\" in condensed bold, large, off-white.\n  Paragraph / bullets below:\n{{BODY_TEXT}}\n  Bottom: attribution or source note in slate italic, very small: \"{{SOURCE}}\"\n16:9. 4K."
+    },
+
+    {
+      "name": "Stats",
+      "variables": {
+        "SLIDE_TITLE": "Sustainability by the Numbers",
+        "STAT_COUNT":  "3",
+        "STATS":       "67% | of consumers | willing to pay premium for verified sustainable products\n$2.8T | market opportunity | in circular economy by 2030 (WEF)\n43% | carbon reduction | achievable through material substitution alone",
+        "FOOTNOTE":    "Sources: McKinsey Consumer Survey 2024 · World Economic Forum · IPCC Materials Report"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nDATA SLIDE.\nMaintain identical visual DNA as the reference image.\nTop: section label \"BY THE NUMBERS\" in electric blue ALL CAPS.\nBelow: slide title \"{{SLIDE_TITLE}}\" in condensed bold, large, off-white.\nCenter: {{STAT_COUNT}} stat cards in a horizontal row. Each card (#131929 background):\n  Very large numeral in electric blue. Label below in off-white medium weight. Context in slate small.\nStats (STAT | LABEL | CONTEXT format):\n{{STATS}}\nCards separated by 1px blue vertical rules.\nBottom: footnote in slate, small italic: \"{{FOOTNOTE}}\"\n16:9. 4K."
+    },
+
+    {
+      "name": "Quote",
+      "variables": {
+        "QUOTE_TEXT":    "Design is not just what it looks like and feels like. Design is how it performs — and for how long.",
+        "SPEAKER_NAME":  "Paola Antonelli",
+        "SPEAKER_TITLE": "Senior Curator of Architecture & Design, MoMA"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nPULL QUOTE SLIDE.\nMaintain identical visual DNA as the reference image.\nFull dark background. Centered vertically and horizontally.\nGiant quotation mark in electric blue, top-left, decorative, ~150pt.\nQuote text — editorial italic serif — large, off-white, centered:\n  \"{{QUOTE_TEXT}}\"\nBelow quote: thin 1px electric-blue horizontal rule, centered, 200px wide.\nAttribution: \"— {{SPEAKER_NAME}}\" in condensed bold, off-white.\n  \"{{SPEAKER_TITLE}}\" on next line, slate, light weight.\nNothing else. Maximum breathing space.\n16:9. 4K."
+    },
+
+    {
+      "name": "Closing / Thank You",
+      "variables": {
+        "TAKEAWAY_COUNT": "3",
+        "TAKEAWAYS":      "→ Material choices made today determine carbon budgets for decades\n→ Circular design is now a client requirement, not a differentiator\n→ Studios that lead on sustainability will define the next decade",
+        "CLOSING_WORD":   "Let's Build",
+        "CLOSING_SUBTITLE": "Sustainable futures begin with intentional design"
+      },
+      "prompt": "{{STYLE_A_SYSTEM}}\nCLOSING SLIDE.\nMaintain identical visual DNA as the reference image.\nLeft 42%: dark surface panel #131929.\n  Top: \"KEY TAKEAWAYS\" in electric blue ALL CAPS.\n  Below: {{TAKEAWAY_COUNT}} takeaway lines:\n{{TAKEAWAYS}}\nRight 58%: near-black background #0B0F19.\n  Center: large off-white bold text \"{{CLOSING_WORD}}\"\n  Below: \"{{CLOSING_SUBTITLE}}\" in slate, lighter weight.\n  Bottom: \"{{CONTACT_EMAIL}}  ·  {{CONTACT_WEB}}\" in slate, small.\n16:9. 4K."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "project-context-evolver-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable Agent Skill for evolving durable project context",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "audit": "node scripts/audit-context.mjs --root . --format markdown",
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node tooling/validate.mjs"
+  }
+}

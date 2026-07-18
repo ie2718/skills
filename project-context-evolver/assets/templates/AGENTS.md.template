@@ -1,0 +1,68 @@
+# AGENTS.md
+
+## Project Overview
+[What the product is, who it serves, and the current delivery stage.]
+
+## Current Scope
+- [Implemented workflow]
+- [Implemented workflow]
+- Non-goal: [Explicit boundary]
+
+## Architecture Summary
+- Runtime: [Verified runtime and package manager]
+- Application: [Main frameworks and entry points]
+- Data: [Storage and data boundary]
+- Integration: [External services or Agent/model backends]
+
+## Repository Map
+```text
+.
+├── [important directory]
+├── [important directory]
+└── [important file]
+```
+
+## Development Commands
+- Install: `[verified command]`
+- Dev: `[verified command]`
+- Test: `[verified command]`
+- Typecheck: `[verified command or Unknown]`
+- Lint: `[verified command or Unknown]`
+- Build: `[verified command]`
+
+## Coding Rules
+- [Project-specific convention]
+- [Module or API boundary]
+- [Compatibility invariant]
+- Avoid generated and dependency directories.
+
+## Testing and Verification
+- Run the narrowest relevant checks.
+- State skipped checks and residual risk.
+
+## Dependency and Security Rules
+- Prefer existing dependencies and standard-library APIs.
+- Record significant architecture or dependency choices in the decision log.
+- Do not commit secrets or local user data.
+- Require explicit confirmation for destructive actions or permission expansion.
+
+## Agent Workflow
+For non-trivial tasks:
+1. Read this file and the relevant sources in `docs/context-index.md`.
+2. Inspect the current implementation before editing.
+3. Make a short plan when work spans modules.
+4. Keep changes focused and preserve unrelated local edits.
+5. Run relevant verification.
+6. Summarize changed files, checks, and remaining risks.
+
+## Context Evolution Rules
+- Update this file when commands, layout, engineering rules, or major assumptions change.
+- Update architecture when modules, data flow, or boundaries change.
+- Update decisions when a significant choice is made or superseded.
+- Update the development log after meaningful milestones.
+- Remove stale guidance instead of appending contradictions.
+
+## Done Definition
+- Requested behavior is implemented or the limitation is clear.
+- Relevant checks passed or were skipped with a reason.
+- Durable project context is updated when future work needs the new knowledge.

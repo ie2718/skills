@@ -1,0 +1,9 @@
+# CLAUDE.md
+
+Read and follow `AGENTS.md`; it is the canonical source for project scope, commands, architecture boundaries, engineering rules, and completion criteria.
+
+## Claude Code-specific notes
+- [Only Claude-specific invocation, permission, or tool guidance]
+- [Do not duplicate shared project rules here]
+
+When this file conflicts with current code or `AGENTS.md`, report the conflict and update the canonical owner rather than maintaining two versions.

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Generated slide images
+slides/
+*.png
+*.jpg
+*.jpeg
+
+# Output
+*.pptx
+!scripts/slides-example.json
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/

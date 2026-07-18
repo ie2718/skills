@@ -1,0 +1,7 @@
+# GitHub Copilot Instructions
+
+Use `AGENTS.md` as the canonical operational guidance for this repository. Use `docs/context-index.md` to distinguish authoritative, planned, supporting, and historical sources.
+
+- [Only Copilot-specific repository or review guidance]
+- Keep changes focused and run the narrowest relevant checks.
+- Do not duplicate the complete project summary in this file.

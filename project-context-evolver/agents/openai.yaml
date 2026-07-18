@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Context Evolver"
+  short_description: "Initialize and evolve project context for coding agents"
+  default_prompt: "Use $project-context-evolver to initialize or audit this repository and evolve its durable agent context."

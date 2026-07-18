@@ -1,0 +1,31 @@
+# Task Templates
+
+## Feature
+
+Objective: [User-visible outcome]
+
+Evidence:
+- [Relevant source files or requirements]
+
+Constraints:
+- [Compatibility, security, or scope boundary]
+
+Acceptance:
+- [Behavior]
+- [Tests]
+- [Context files to update, if any]
+
+## Bug fix
+
+Observed behavior: [What happens]
+
+Expected behavior: [What should happen]
+
+Reproduction evidence:
+- [Steps, logs, test, or file]
+
+Guardrails:
+- Preserve [baseline invariant]
+
+Verification:
+- [Focused regression test]

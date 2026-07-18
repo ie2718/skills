@@ -1,0 +1,27 @@
+# Context Index
+
+## Authoritative Sources
+- `AGENTS.md`: operational rules, commands, and done definition.
+- `README.md`: user-facing setup and runtime behavior.
+- `docs/architecture.md`: current modules, data flow, and boundaries.
+- `docs/decisions.md`: accepted and superseded technical decisions.
+- [PRD or approved plan]: [Scope owned by this source].
+
+## Supporting Sources
+- [Manifest/schema/type file]: [Truth it provides].
+
+## Historical Sources
+- [Development log, discussions, prototypes, or reviews]: context only; not authoritative for current behavior.
+
+## Update Rules
+- Commands/layout/rules -> update `AGENTS.md`.
+- Modules/data flow/boundaries -> update architecture.
+- Significant technical choice -> update decisions.
+- Meaningful completed milestone -> update development log.
+
+## Fast Onboarding Path
+1. `AGENTS.md`
+2. This index
+3. `README.md`
+4. `docs/architecture.md`
+5. PRD or plans only when scope or future work matters

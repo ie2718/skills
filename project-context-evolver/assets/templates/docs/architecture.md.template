@@ -1,0 +1,25 @@
+# Architecture
+
+## System Overview
+[Current system shape and deployment model.]
+
+## Main Modules
+- `[path]`: [Responsibility and boundary]
+- `[path]`: [Responsibility and boundary]
+
+## Primary Flow
+1. [Input enters]
+2. [Service/module processes it]
+3. [Data or event is persisted/emitted]
+4. [Output is presented]
+
+## Data and Security Boundaries
+- [Storage location and ownership]
+- [Credential handling]
+- [Filesystem/network exposure]
+- [Destructive action or permission boundary]
+
+## Current Status
+- Implemented: [Current capability]
+- Planned: [Linked approved plan]
+- Known gap: [Concrete limitation]

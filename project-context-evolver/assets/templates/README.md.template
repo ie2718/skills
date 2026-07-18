@@ -1,0 +1,23 @@
+# [Project Name]
+
+[One paragraph: what this project is, who it serves, and the problem it solves.]
+
+> Status: [Greenfield — no runnable code yet | Alpha | Beta | Stable]
+
+## Getting Started
+
+- Requirements: [Runtime and version, or `Planned`]
+- Install: `[verified command, or Planned: intended tool]`
+- Run: `[verified command, or Planned: intended tool]`
+
+## Project Layout
+
+[Short map of the important directories, or omit until code exists.]
+
+## For Coding Agents
+
+Operational guidance for agents lives in `AGENTS.md`. Technical decisions and their rationale live in `docs/decisions.md`.
+
+## License
+
+[License, or `Undecided`]

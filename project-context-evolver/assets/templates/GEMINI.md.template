@@ -1,0 +1,9 @@
+# GEMINI.md
+
+Use `AGENTS.md` as the canonical repository guidance and `docs/context-index.md` to locate deeper project truth.
+
+## Gemini CLI-specific notes
+- [Only Gemini-specific tool, sandbox, or invocation guidance]
+- [Do not duplicate shared project rules here]
+
+Verify commands against current manifests before relying on examples in historical documents.

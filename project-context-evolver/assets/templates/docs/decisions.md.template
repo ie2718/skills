@@ -1,0 +1,16 @@
+# Decisions
+
+## YYYY-MM-DD: Decision title
+
+Status: Proposed | Accepted | Superseded
+
+Context:
+- [Why a durable choice was required]
+
+Decision:
+- [What was chosen]
+
+Consequences:
+- [Benefit]
+- [Cost or constraint]
+- [Follow-up]
