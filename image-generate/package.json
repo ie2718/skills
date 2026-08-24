@@ -1,0 +1,15 @@
+{
+  "name": "image-generate-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable Agent Skill for generating and editing images via OpenAI-compatible and Gemini-compatible image APIs",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "validate": "node tooling/validate.mjs",
+    "install-skill": "node tooling/install.mjs --target all --scope project"
+  }
+}

@@ -1,0 +1,10 @@
+# Normalize text files in the repository.
+* text=auto
+
+# Shell scripts MUST keep LF endings. Git for Windows defaults to
+# core.autocrlf=true, and a CRLF checkout makes bash fail immediately
+# with "set: pipefail: invalid option name".
+*.sh text eol=lf
+
+# Node scripts are run by node on every platform; keep them LF too.
+*.mjs text eol=lf
