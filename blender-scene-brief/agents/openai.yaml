@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Scene Brief"
+  short_description: "Turn a scene idea into a Blender production brief"
+  default_prompt: "Use $blender-scene-brief to turn a scene description into a full Blender production brief."

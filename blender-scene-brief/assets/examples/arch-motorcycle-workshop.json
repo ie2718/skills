@@ -1,0 +1,162 @@
+{
+  "slug": "arch-motorcycle-workshop",
+  "title": "Railway Arch Motorcycle Workshop",
+  "subtitle": "A single-mission Blender environment production prompt: build a working two-bay motorcycle repair shop inside a brick railway arch on a wet industrial backstreet — from art bible and renderable graybox through an evidence-based render-review loop with six fresh-context critics, to a fourteen-camera final delivery governed by a 100-point rubric and cold-start validation.",
+  "meta": {
+    "engine": "Blender 4.x · Cycles",
+    "scope": "260–340 m² · two lifts · 12+ machines"
+  },
+  "runtime": {
+    "compute": "Linux headless · 1 discrete GPU render device; no display server.",
+    "dcc": "Blender CLI (detect the installed version and record it) — no MCP, no add-on assistants. Write Blender Python and debug renders through the CLI.",
+    "harness": "Agentic coding harness with sub-agents available for the fresh-context review loop.",
+    "starting_assets": "None — no pre-made scripts, plugins, MCP servers, or asset libraries. Everything is generated from scratch.",
+    "budget": "Long-horizon autonomous run — no human intervention expected between start and delivery."
+  },
+  "roles": [
+    "lead environment artist",
+    "Blender technical artist",
+    "industrial workshop designer",
+    "motorcycle mechanic subject-matter owner",
+    "lighting artist",
+    "final quality owner"
+  ],
+  "objective": {
+    "paragraphs": [
+      "Create a complete, editable, photorealistic Blender environment depicting an independent motorcycle repair workshop occupying two brick railway arches on a wet backstreet. The shop is a working business, not a showroom: machines are mid-repair, the floor is stained, and every tool has a place it actually returns to.",
+      "The finished environment covers roughly 260–340 square metres across the arch interiors, the forecourt, and the rear yard, and must read as a coherent, functioning real place from a wide establishing view, from normal eye-level circulation, and from close inspection of a single fastener. It is not a one-camera façade. Every named area has modelled depth, believable access, and enough equipment to explain the work done there. The visual target is polished environment art with the density, navigation clarity, material response, and storytelling expected of a premium game environment."
+    ],
+    "callout": {
+      "label": "Defining Visual Story",
+      "body": "A rider wheels a wet bike in off the street into a warm, cluttered, competent workspace where two machines are already opened up on lifts and the day's work is visibly half-finished."
+    },
+    "avoid": [
+      "A clean corporate dealership service centre",
+      "A symmetrical hobby garage with one bike on a plinth",
+      "A steampunk or post-apocalyptic reinterpretation",
+      "Tools arranged as decoration rather than by use",
+      "A dark interior that hides unbuilt geometry",
+      "A single hero angle with unfinished reverse views"
+    ]
+  },
+  "spatial_intro": "Use Blender units in metres. Hold human-scale clearances, real door and shutter widths, lift service envelopes, walkway widths around a machine on a stand, and the swing space a mechanic needs with a breaker bar. The complete scene includes all of the following connected areas:",
+  "zones": [
+    { "name": "Street edge and forecourt", "body": "Wet setted paving, kerb, drain, parked customer machine, shutter track, hand-painted signage, and the arch face with its brick voussoirs." },
+    { "name": "Roller shutter threshold", "body": "Half-raised shutter, guide channels, threshold ramp, weather curtain, chained bollard, and the light spill between outside and inside." },
+    { "name": "Counter and waiting corner", "body": "Service counter, till, job cards, parts catalogues, two mismatched chairs, kettle, wall calendar, and a heater aimed at nobody." },
+    { "name": "Main repair bay", "body": "Two motorcycle lifts at working height with machines opened up, tool trolleys pulled alongside, drip trays, work lamps, and clear walk-around clearance." },
+    { "name": "Wheel and tyre station", "body": "Tyre changer, balancer, wheel stack, valve and weight bins, bead lubricant, and swarf-marked floor around the machine base." },
+    { "name": "Engine teardown bench", "body": "Heavy bench with vice, engine stand, parts washer, laid-out components on labelled trays, torque wrenches, and a service manual held open." },
+    { "name": "Parts store and mezzanine", "body": "Steel racking, labelled bins, boxed consumables, exhausts and fairings stored overhead, ladder access, and a scaffold-plank mezzanine deck with handrail." },
+    { "name": "Machine shop corner", "body": "Bench lathe, pillar drill, hydraulic press, bench grinder with its own shower of swarf, and a curtained welding bay with extraction and screens." },
+    { "name": "Wash-down, waste and fluid store", "body": "Floor gully, jet wash, bunded oil drums, waste-oil tank, filter bin, spill kit, degreaser shelf, and rag storage." },
+    { "name": "Rear yard", "body": "Project machines under tarpaulins, a scrap frame stack, gas bottle cage, bin store, security lighting, and the arch's rear brickwork with damp staining." }
+  ],
+  "adjacency": [
+    "A machine can be wheeled from street to either lift without lifting it over anything or squeezing past a trolley; the route stays clear in the final renders.",
+    "The counter controls customer access, and customers never need to cross a live lift bay, the welding curtain, or the swarf zone to reach it.",
+    "Dirty processes — wash-down, waste oil, welding, grinding — sit downstream of the clean teardown bench and parts store, with their own drainage and extraction.",
+    "Parts store and mezzanine are reachable from both the teardown bench and the lifts without moving a machine; ladder access has real footing clearance."
+  ],
+  "asset_families": [
+    { "name": "Motorcycles", "body": "at least 12 complete machines across four distinct types — naked, sport, adventure, and classic — with 3 shown stripped to varying depths (fairings off, tank off, engine out), correct wheel, brake, chain, cable and loom detail, and individual wear, plate, and grime states." },
+    { "name": "Lifts and bay equipment", "body": "two motorcycle lifts with hydraulic rams, tie-down straps and wheel chocks, paddock stands, tyre stands, drip trays, work lamps on magnetic bases, and a rolling seat." },
+    { "name": "Hand tools and tool storage", "body": "at least 3 roller cabinets with partially open drawers, a shadow board with outlines and gaps, socket sets, torque wrenches, impact gun with hose, screwdriver racks, pliers, hammers, and loose tools resting where they were last used." },
+    { "name": "Machine shop equipment", "body": "bench lathe with chuck key and swarf tray, pillar drill, hydraulic press with pump handle, bench grinder, MIG welder with bottle, torch, earth clamp, extraction arm, and screen curtains." },
+    { "name": "Parts inventory", "body": "at least 400 represented parts positions using efficient instances — bins, boxed bearings, chains, sprockets, filters, gaskets, brake discs, cables, and exhausts — with printed labels, part numbers, and honest inconsistency in stacking." },
+    { "name": "Consumables and fluids", "body": "oil bottles and drums, coolant, brake fluid, chain lube, degreaser, brake cleaner, funnels, measuring jugs, blue roll, rag bin, cable ties, and a grease gun." },
+    { "name": "Shop joinery and fixtures", "body": "service counter, till, job-card rack, key board, pegboard, bench tops with vices, shelving brackets, notice board, first-aid and fire points, and a wall-mounted extractor." },
+    { "name": "Street and arch context", "body": "wet setts, kerbs, gully, bollards, opposite wall with graffiti and downpipes, parked van, street lamp, signage, overhead cabling, and the implied railway deck above the arch." }
+  ],
+  "construction": [
+    "Resolve the brick arch honestly: springing line, voussoirs, engineering-brick skin, damp staining, salt bloom, mortar loss, and the junction where a modern blockwork infill wall meets curved brick.",
+    "Model the roller shutter as an assembly — slats, guide channels, barrel, motor or chain hoist, bottom rail, and the gap where daylight leaks around it.",
+    "The wet zone needs a fall to the gully, coved edges, a bunded drum area, and a visible separation between clean bench floor and wash-down floor.",
+    "The mezzanine is a real structure: posts, beams, plank deck with gaps, handrail, toe board, ladder fixings, and load-bearing connections that could actually carry the stored exhausts.",
+    "Services are surface-run and visible: conduit, junction boxes, sockets at bench height, air line with drops and couplings, extraction ducting, and strip-light suspension."
+  ],
+  "palette": [
+    "engineering brick in dark red-brown with lime bloom and soot",
+    "painted blockwork in a chipped institutional cream",
+    "oil-darkened concrete floor with tyre tracking and old spill haloes",
+    "powder-coated steel racking in faded blue",
+    "galvanised shutter and duct metal with white oxidation",
+    "worn stainless and chrome on tools and machine parts",
+    "rubber, cable sheathing, and tyre black with grey dust bloom",
+    "one saturated accent — the shop's brand colour on signage, a toolbox, and a single fresh tank"
+  ],
+  "material_notes": [
+    "Grime must follow use, not noise: hand-polish on grip and lever contact points, oil pooling at low points, dust on horizontal surfaces only, water darkening from the shutter inward, and clean metal where a spanner has just been."
+  ],
+  "lighting": {
+    "time": "the end of a wet winter afternoon, with daylight failing outside while the shop's own lights carry the interior",
+    "exterior": "Outside, provide a low overcast sky, a wet street reading specular rather than bright, a lit window or two across the road, a working street lamp warming up, and enough exterior detail that the shutter opening does not become a blown white hole.",
+    "direction": "cool falling daylight through the shutter opening and the arch's high window as ambient fill, banks of 4000 K fluorescent or LED battens as the working key, warm 2700 K counter and mezzanine practicals, hard focused inspection lamps at each lift, and a single sodium security lamp in the rear yard.",
+    "notes": [
+      "The two lifts are the brightest working pools in the shop; the parts store and rear yard fall away in level but never into unreadable black."
+    ]
+  },
+  "storytelling": [
+    "a job card taped to a tank, a chalked note on the floor, and a wheel labelled with a customer's surname",
+    "an oil drain mid-service with the sump plug on a magnetic tray and the filter still wet",
+    "a mug with a cold ring in it, gloves peeled off inside out, and a radio on the shelf",
+    "a drying rack of washed parts, a bin of used filters, and blue roll used and discarded near the bench",
+    "wet boot prints from the shutter to the counter, fading as they go, and a helmet left on a stool",
+    "one machine cleaned, polished and finished, parked by the shutter ready for collection"
+  ],
+  "cameras": [
+    { "file": "01_street_and_arch.png", "name": "Street and arch face", "body": "Wet setts, kerb, arch brickwork, signage, half-raised shutter, and the interior glow read from outside." },
+    { "file": "02_shutter_threshold.png", "name": "Shutter threshold", "body": "Threshold ramp, guide channels, weather line, and the transition from wet street to shop floor." },
+    { "file": "03_workshop_hero.png", "name": "Workshop hero", "body": "Wide view uniting both lifts, the teardown bench, the parts racking, the machine shop corner, and the shutter light.", "hero": true, "resolution": "2560x1440" },
+    { "file": "04_main_bay_lift_one.png", "name": "Main bay, lift one", "body": "A machine opened up at working height with trolley, tools, drip tray, and inspection lamp in real working relationship." },
+    { "file": "05_main_bay_reverse.png", "name": "Main bay reverse", "body": "The reverse angle proving the far wall, air line, notice board, and rear of the racking are fully built." },
+    { "file": "06_teardown_bench.png", "name": "Engine teardown bench", "body": "Vice, engine stand, laid-out components on labelled trays, parts washer, and open service manual." },
+    { "file": "07_wheel_and_tyre_station.png", "name": "Wheel and tyre station", "body": "Tyre changer and balancer with wheel stack, weights, lubricant, and floor marking from use." },
+    { "file": "08_machine_shop_corner.png", "name": "Machine shop corner", "body": "Lathe, drill, press, grinder, and the curtained welding bay with extraction and screens." },
+    { "file": "09_parts_store.png", "name": "Parts store and racking", "body": "Bin density, labelling, boxed stock, overhead exhaust storage, and the mezzanine underside." },
+    { "file": "10_mezzanine_view_down.png", "name": "Mezzanine looking down", "body": "The whole floor from above, proving layout, circulation, lighting hierarchy, and ceiling and duct coordination." },
+    { "file": "11_counter_and_waiting.png", "name": "Counter and waiting corner", "body": "Counter, till, job cards, key board, chairs, and the customer's view into the shop." },
+    { "file": "12_wash_and_waste.png", "name": "Wash-down and waste store", "body": "Gully fall, jet wash, bunded drums, waste-oil tank, spill kit, and honest non-public completeness." },
+    { "file": "13_rear_yard.png", "name": "Rear yard", "body": "Tarpaulined projects, scrap stack, gas cage, security lamp, and damp rear brickwork." },
+    { "file": "14_tool_and_part_detail.png", "name": "Tool and part detail", "body": "Close inspection: fastener heads, knurling, cable ends, printed labels, chipped paint, and hand-polish on worn contact points." }
+  ],
+  "critics": [
+    { "name": "Workshop planning critic", "body": "Judge machine routes, lift clearances, bench working space, ladder and mezzanine access, and whether a real mechanic could work here." },
+    { "name": "Mechanical authenticity critic", "body": "Judge tooling correctness, equipment plausibility, service logic, fluid and waste handling, and whether the mid-repair states make mechanical sense." },
+    { "name": "Motorcycle detail critic", "body": "Judge machine proportion, component correctness, cable and loom routing, wheel and brake detail, and the credibility of the stripped states." },
+    { "name": "Industrial fabric critic", "body": "Judge brickwork, shutter, mezzanine, services, drainage, and whether the arch reads as a real converted structure." },
+    { "name": "Wet-afternoon lighting critic", "body": "Judge interior and exterior exposure balance, working-light pools, specular response on wet surfaces, and depth in the rear yard." },
+    { "name": "Blender technical critic", "body": "Judge render stability, paths, collection organisation, instancing, material links, and delivery portability." }
+  ],
+  "rubric": [
+    { "dimension": "Workshop planning and working clearances", "detail": "Machine routes, lift envelopes, bench space, storage access, customer separation", "points": 12 },
+    { "dimension": "Mechanical and tooling authenticity", "detail": "Equipment correctness, service logic, fluids, waste, mid-repair plausibility", "points": 22 },
+    { "dimension": "Motorcycle and parts asset completeness", "detail": "Machine count, variety, component depth, stock density, close-range credibility", "points": 18 },
+    { "dimension": "Structure, envelope, and construction detail", "detail": "Arch, shutter, mezzanine, services, drainage, and how things terminate", "points": 13 },
+    { "dimension": "Lighting, weather, and atmosphere", "detail": "Interior and exterior balance, working pools, wet specular response, depth", "points": 17 },
+    { "dimension": "Composition and workshop narrative", "detail": "Camera hierarchy, traces of use, half-finished work, lived-in storytelling", "points": 13 },
+    { "dimension": "Technical quality and portability", "detail": "Clean editable scene, performance, dependencies, and outputs", "points": 5 }
+  ],
+  "failures": [
+    "Tools are arranged decoratively in rows rather than positioned by the work in progress.",
+    "The motorcycles are the same base mesh recoloured, or lack cables, brake lines, fasteners, and chain detail at close range.",
+    "No machine could physically be wheeled from the street to a lift without passing through geometry.",
+    "The shutter opening is a blown white hole or a flat black rectangle instead of a readable exterior.",
+    "The welding, grinding, and wash-down zones exist as labels rather than as equipment with extraction, screens, and drainage.",
+    "Parts racking is a repeated box texture with no individual stock, labelling, or stacking irregularity.",
+    "Any required zone is missing, represented only by a sign, or built as a camera-facing shell.",
+    "Multiple final views reveal floating assets, severe intersections, incorrect scale, missing faces, broken normals, default materials, or placeholder geometry.",
+    "Grime is a uniform overlay noise rather than evidence of use, gravity, and water paths.",
+    "Darkness, haze, depth of field, or cropping is used to conceal incomplete work.",
+    "renders/final/ is absent, contains viewport screenshots, or does not cover the required scene.",
+    "The final .blend cannot open and render with all required textures and linked resources available."
+  ],
+  "escalation": [
+    "the machine route from street to lift",
+    "the density and irregularity of stored parts",
+    "the relationship between lifts, bench, and racking",
+    "ceiling, duct, and lighting coordination",
+    "the exterior exposure read through the shutter",
+    "the hero composition's foreground, midground, and background separation"
+  ]
+}

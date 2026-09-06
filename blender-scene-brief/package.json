@@ -1,0 +1,16 @@
+{
+  "name": "blender-scene-brief-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable Agent Skill that turns a scene idea into a complete Blender production brief, as Markdown and a styled HTML page",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "validate": "node tooling/validate.mjs",
+    "example": "node scripts/render-brief.mjs assets/examples/arch-motorcycle-workshop.json --out-dir out",
+    "install-skill": "node tooling/install.mjs --target all --scope project"
+  }
+}
