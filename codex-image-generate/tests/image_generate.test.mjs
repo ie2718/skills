@@ -4,9 +4,30 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import http from 'node:http';
-import { main, chooseModel, workspaceOutput, preferencePath, readConfig, parseArgs, request } from '../scripts/codex_image_generate.mjs';
+import { main, chooseModel, workspaceOutput, preferencePath, readConfig, parseArgs, request, decodeImage } from '../scripts/codex_image_generate.mjs';
 import toml from '../scripts/vendor/smol-toml/index.cjs';
 const PNG = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1cAAAAASUVORK5CYII=', 'base64');
+
+test('multi-megabyte base64 decodes without stack overflow for all padding lengths', () => {
+  const bytes = Buffer.alloc(12 * 1024 * 1024 + 2);
+  for (let i = 0; i < bytes.length; i++) bytes[i] = i % 256;
+  for (const extra of [0, 1, 2]) {
+    const original = bytes.subarray(0, 12 * 1024 * 1024 + extra);
+    assert.deepEqual(decodeImage(original.toString('base64')), original);
+  }
+});
+
+test('base64 validation rejects bad characters and malformed padding', () => {
+  for (const value of [null, 123, '', 'A', 'AAA', '====', 'A===', '=AAA', 'AA=A',
+    'AA==AAAA', 'AAA\n', 'AA A', 'AA-_', 'AAéA', 'AA\u0000A']) {
+    assert.throws(() => decodeImage(value), /invalid base64 image data/);
+  }
+  const large = 'AAAA'.repeat(4 * 1024 * 1024);
+  assert.throws(() => decodeImage(large.slice(0, -1) + '!'), /invalid base64 image data/);
+  for (const original of [Buffer.from([255]), Buffer.from([255, 254]), Buffer.from([255, 254, 253])]) {
+    assert.deepEqual(decodeImage(original.toString('base64')), original);
+  }
+});
 async function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-image-node-'));
   const calls = [];

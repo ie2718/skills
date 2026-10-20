@@ -184,8 +184,16 @@ export function imageExtension(data) {
   if (data.toString('ascii', 0, 4) === 'RIFF' && data.toString('ascii', 8, 12) === 'WEBP') return ['.webp', 'image/webp'];
   throw new Failure('Expected a PNG, JPEG or WebP image; refusing to save non-image content.');
 }
-function decodeImage(value) {
-  if (typeof value !== 'string' || !value.length || value.length % 4 || !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value)) throw new Failure('Provider returned invalid base64 image data.');
+export function decodeImage(value) {
+  const invalid = () => { throw new Failure('Provider returned invalid base64 image data.'); };
+  if (typeof value !== 'string' || !value.length || value.length % 4) invalid();
+  const padding = value.endsWith('==') ? 2 : value.endsWith('=') ? 1 : 0;
+  // A repeated-group regexp can overflow V8's stack on multi-megabyte images.
+  // Scan once with constant stack usage; Buffer.from alone accepts malformed input.
+  for (let i = 0; i < value.length - padding; i++) {
+    const c = value.charCodeAt(i);
+    if (!(c >= 65 && c <= 90 || c >= 97 && c <= 122 || c >= 48 && c <= 57 || c === 43 || c === 47)) invalid();
+  }
   return Buffer.from(value, 'base64');
 }
 function multipart(fields, images) {
