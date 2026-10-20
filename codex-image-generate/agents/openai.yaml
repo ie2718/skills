@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Image Generate"
+  short_description: "Generate images using Codex API credentials"
+  default_prompt: "Use $codex-image-generate to generate an image with my Codex API configuration, save it locally, and open it in the built-in Codex right-side preview."
