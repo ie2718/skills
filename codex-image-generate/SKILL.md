@@ -7,20 +7,28 @@ description: 在 Codex API 模式下生成或编辑图片，读取本机 auth.js
 
 复用 Codex API 配置，通过 OpenAI Images 或 Gemini generateContent 接口生成图片。脚本自包含，不依赖 `image-generate` skill，不改写 Codex 配置，也不把密钥复制到工作区。
 
+## 运行环境
+
+脚本适用于 Windows、macOS 和 Linux，使用 Node.js 内置的 HTTP、文件和加密模块，无需 Python、SDK 或 npm install。TOML 解析器随 skill 附带，来源和许可证见 [scripts/vendor/smol-toml/NOTICE.md](scripts/vendor/smol-toml/NOTICE.md)。复制或安装时保留整个 skill 文件夹。
+
+命令示例使用 Bash 的变量和续行方式；PowerShell 中可改为单行，并用 `& "C:\path\to\node.exe" "C:\path\to\codex_image_generate.mjs" ...` 调用带空格的绝对路径。不要依赖 Bash 才能运行脚本本身。
+
+Node.js 18 的原生 fetch 不自动继承 HTTP_PROXY / HTTPS_PROXY；需要代理时使用支持环境代理的较新 Node.js 并按其文档启用，或使用配置中的可直连 API 网关。
+
 ## 使用流程
 
-1. 从当前会话环境确定用户的工作目录：有项目时使用当前项目或工作树目录，无项目时使用当前对话的工作目录。将执行工具的 `workdir` 设为该目录，并将下列 `WORKSPACE_DIR` 替换为它的绝对路径；`SKILL_DIR` 替换为本文件所在目录的绝对路径。不要为了执行脚本切换到 skill 安装目录。需要 Python 3.11+；Python 3.9–3.10 可安装 `tomli`。若默认 `python3` 太旧，使用已安装的 `python3.12` 等解释器。
+1. 从当前会话环境确定用户的工作目录：有项目时使用当前项目或工作树目录，无项目时使用当前对话的工作目录。将执行工具的 `workdir` 设为该目录，并将下列 `WORKSPACE_DIR` 替换为它的绝对路径；`SKILL_DIR` 替换为本文件所在目录的绝对路径。不要为了执行脚本切换到 skill 安装目录。需要 Node.js 18+。先检查 `node --version`；如果系统没有 Node.js，可使用 Codex 桌面提供的 `mcp__codex_app__load_workspace_dependencies` 查询自带 Node.js 的绝对路径，使用返回的可执行文件。若两者都不可用，说明需要安装 Node.js 18+，不声称零运行时依赖。
 2. 首先查询模型（仅查询，不计为生图调用）：
 
    ```bash
-   python3 "$SKILL_DIR/scripts/codex_image_generate.py" --list-models
+   node "$SKILL_DIR/scripts/codex_image_generate.mjs" --list-models
    ```
 
    输出候选模型及推断的接口。筛选依据是模型 ID 和输出模态元数据；`/models` 并没有统一的生图能力字段，因此候选并不保证接口可用。需要检查所有 ID 时加 `--all-models`。不要使用 Codex 配置中的聊天模型作为默认生图模型。
 3. 根据需求编写提示词。用户未指定模型时，省略 `--model`，沿用上次成功生成的选择；没有历史选择时自动发现较新的模型。不要为了举例或测试主动指定旧版模型。首次选择优先 `gpt-image-*`，其次 Gemini 图像模型，再次 DALL·E；同系列按数字版本排序（例如 2.10 高于 2.5），同版本 GPT 优先无后缀的标准 ID，而非 flare / sunburst 等别名。不同系列的版本号不可直接比较，此处“较新”是基于 ID 的启发式，不代表已核实发布日期。使用明确的本地输出路径：
 
    ```bash
-   python3 "$SKILL_DIR/scripts/codex_image_generate.py" \
+   node "$SKILL_DIR/scripts/codex_image_generate.mjs" \
      --workspace-dir "$WORKSPACE_DIR" --output output/robot.png \
      "一只正在画画的小机器人，暖色水彩，留白背景"
    ```
@@ -28,13 +36,21 @@ description: 在 Codex API 模式下生成或编辑图片，读取本机 auth.js
    编辑图片或使用参考图：
 
    ```bash
-   python3 "$SKILL_DIR/scripts/codex_image_generate.py" \
+   node "$SKILL_DIR/scripts/codex_image_generate.mjs" \
      --model MODEL_ID --image /absolute/path/reference.png \
      --workspace-dir "$WORKSPACE_DIR" --output output/edited.png \
      "保留主体和构图，将画面转换为水彩风格"
    ```
 
-4. 检查脚本返回的绝对路径，必要时查看图片，然后按下方“Codex 预览”打开右侧面板。最终答复保留本地文件链接；可同时用 `![图片](/absolute/path/output/robot.png)` 展示结果。
+4. 检查脚本返回的绝对路径和成功输出中的 `Generation model ID`，必要时查看图片，然后按下方“Codex 预览”打开右侧面板。最终答复必须明确标注本次生成使用的完整模型 ID，并保留本地文件链接；可同时用 `![图片](/absolute/path/output/robot.png)` 展示结果。
+
+## 结果中标注模型
+
+每次生成或编辑成功，最终答复都要在图片附近写明：**生成模型：`实际模型 ID`**。例如：**生成模型：`gpt-image-2.5`**。即使模型由自动发现或历史记录选择，也必须注明，不能只在过程中或工具日志里说明。
+
+以本次成功调用输出的 `Generation model ID` 为依据，保留版本号和别名后缀；不要从示例、默认设置或 Codex 当前聊天模型推断。该 ID 是发送给服务的模型标识，网关内部是否映射到其他底层模型不可由此确认，不擅自展开别名。脚本标准输出仍只返回图片绝对路径，模型及成功信息写入标准错误。
+
+多张图片使用不同模型时，分别对应标注；使用同一模型时可以统一注明。调用失败时只说明尝试的模型，不声称已由它生成图片。只打开旧图片且缺少原始生成记录时，不猜测模型。
 
 ## 图片保存位置
 
@@ -45,7 +61,7 @@ description: 在 Codex API 模式下生成或编辑图片，读取本机 auth.js
 
 ## Codex 预览
 
-在 Codex 桌面环境中，生成成功后使用 Codex 自带的 `mcp__codex_app__open_in_codex` 打开右侧图片预览；用户要求只保存文件时跳过。此步骤由调用 skill 的 agent 完成，Python CLI 只负责生图和保存文件。只预览现有图片时直接使用其路径，不重新生图。
+在 Codex 桌面环境中，生成成功后使用 Codex 自带的 `mcp__codex_app__open_in_codex` 打开右侧图片预览；用户要求只保存文件时跳过。此步骤由调用 skill 的 agent 完成，Node.js CLI 只负责生图和保存文件。只预览现有图片时直接使用其路径，不重新生图。
 
 调用参数：
 
@@ -92,7 +108,7 @@ HTTP 错误、无图片结果、下载失败都返回非零退出码。脚本不
 ## 验证
 
 ```bash
-python3 -m unittest discover -s "$SKILL_DIR/tests" -v
+node --test "$SKILL_DIR/tests/image_generate.test.mjs"
 ```
 
 测试使用本地模拟服务覆盖配置解析、模型发现、两种接口、图片落盘和凭据处理，不消耗真实生图额度。
